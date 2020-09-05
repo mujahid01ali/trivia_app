@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="TriviaData" representedClassName="TriviaData" syncable="YES" codeGenerationType="class">
+        <attribute name="cricketerName" optional="YES" attributeType="String"/>
+        <attribute name="dateT" optional="YES" attributeType="String"/>
+        <attribute name="flagColors" optional="YES" attributeType="String"/>
+        <attribute name="userName" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="TriviaData" positionX="-54" positionY="18" width="128" height="103"/>
+    </elements>
+</model>
