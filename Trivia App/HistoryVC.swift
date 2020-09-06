@@ -11,11 +11,10 @@ import UIKit
 class HistoryVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var viewList = [ViewTypeModel]()
     var userData:[TriviaData]? = [TriviaData]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        userData = DatabaseHelper.shareInstance.getStudentList().reversed()
+        userData = DatabaseHelper.shareInstance.getUserData().reversed()
        // setViewModel()
         setupTableView()
 
@@ -46,14 +45,5 @@ extension HistoryVC:UITableViewDataSource,UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         cell.setData(res: userData![indexPath.row],index:indexPath.row)
         return cell
-    }
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            userData = DatabaseHelper.shareInstance.deleteData(index: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
     }
 }

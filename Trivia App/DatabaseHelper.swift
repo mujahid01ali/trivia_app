@@ -26,7 +26,7 @@ class DatabaseHelper{
         }
     }
     
-    func getStudentList() -> [TriviaData] {
+    func getUserData() -> [TriviaData] {
         var userData = [TriviaData]()
         let fetchReq = NSFetchRequest<NSManagedObject>(entityName: "TriviaData")
         do{
@@ -36,17 +36,5 @@ class DatabaseHelper{
             print("Error to get Data")
         }
         return userData
-    }
-    func deleteData(index:Int) -> [TriviaData] {
-        var triviaData = getStudentList()
-        context?.delete(triviaData[index])
-        triviaData.remove(at: index)
-        do{
-            try context?.save()
-        }catch{
-            print("Cannot Delete data")
-        }
-        return triviaData
-        
     }
 }

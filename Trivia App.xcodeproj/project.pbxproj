@@ -27,8 +27,8 @@
 		0AEAFD0425042790008EF261 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFD0225042790008EF261 /* TableViewCell.swift */; };
 		0AEAFD0525042790008EF261 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AEAFD0325042790008EF261 /* TableViewCell.xib */; };
 		0AEAFD0725042A69008EF261 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFD0625042A69008EF261 /* UITableView.swift */; };
-		0AEAFD0925042AA1008EF261 /* ViewTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFD0825042AA1008EF261 /* ViewTypeModel.swift */; };
 		0AEAFD0B25042B54008EF261 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFD0A25042B54008EF261 /* String.swift */; };
+		0AEAFD0D250490EC008EF261 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAFD0C250490EC008EF261 /* UIView.swift */; };
 		3DCB888E1DEF63E4ED58B960 /* Pods_Trivia_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25FE60CD70AD2D0DAFAB864 /* Pods_Trivia_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,8 +55,8 @@
 		0AEAFD0225042790008EF261 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		0AEAFD0325042790008EF261 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		0AEAFD0625042A69008EF261 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = SOURCE_ROOT; };
-		0AEAFD0825042AA1008EF261 /* ViewTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTypeModel.swift; sourceTree = "<group>"; };
 		0AEAFD0A25042B54008EF261 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		0AEAFD0C250490EC008EF261 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B25FE60CD70AD2D0DAFAB864 /* Pods_Trivia_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trivia_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B651794B2AE029AF134A715E /* Pods-Trivia App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trivia App.release.xcconfig"; path = "Target Support Files/Pods-Trivia App/Pods-Trivia App.release.xcconfig"; sourceTree = "<group>"; };
 		EDB16CE624A620A0DF128F86 /* Pods-Trivia App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trivia App.debug.xcconfig"; path = "Target Support Files/Pods-Trivia App/Pods-Trivia App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -96,7 +96,6 @@
 		0AEAFCC72503C7AD008EF261 /* Trivia App */ = {
 			isa = PBXGroup;
 			children = (
-				0AEAFD0825042AA1008EF261 /* ViewTypeModel.swift */,
 				0AEAFD0625042A69008EF261 /* UITableView.swift */,
 				0AEAFCF825040E24008EF261 /* DatabaseHelper.swift */,
 				0AEAFCE82503D837008EF261 /* CustomButton.swift */,
@@ -118,6 +117,7 @@
 				0AEAFD0225042790008EF261 /* TableViewCell.swift */,
 				0AEAFD0325042790008EF261 /* TableViewCell.xib */,
 				0AEAFD0A25042B54008EF261 /* String.swift */,
+				0AEAFD0C250490EC008EF261 /* UIView.swift */,
 			);
 			path = "Trivia App";
 			sourceTree = "<group>";
@@ -250,10 +250,10 @@
 				0AEAFCF12503E288008EF261 /* ConstantString.swift in Sources */,
 				0AEAFCC92503C7AD008EF261 /* AppDelegate.swift in Sources */,
 				0AEAFCD32503C7AD008EF261 /* Trivia_App.xcdatamodeld in Sources */,
-				0AEAFD0925042AA1008EF261 /* ViewTypeModel.swift in Sources */,
 				0AEAFCEF2503E0E3008EF261 /* UIButton.swift in Sources */,
 				0AEAFD0B25042B54008EF261 /* String.swift in Sources */,
 				0AEAFD0125042691008EF261 /* HistoryVC.swift in Sources */,
+				0AEAFD0D250490EC008EF261 /* UIView.swift in Sources */,
 				0AEAFCF925040E24008EF261 /* DatabaseHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

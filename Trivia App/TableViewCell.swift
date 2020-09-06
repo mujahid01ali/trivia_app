@@ -18,12 +18,16 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var lbBestCriketerQues: UILabel!
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var lbDateTime: UILabel!
+    @IBOutlet weak var mainView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // making view corner raound
+        mainView.roundCorners([.allCorners], radius: 8.0)
+        
     }
 
     func setData(res:TriviaData,index:Int) {
+        
         if let dateT = res.dateT{
             lbDateTime.text = dateT
             lbDateTitle.text = "Date :"
