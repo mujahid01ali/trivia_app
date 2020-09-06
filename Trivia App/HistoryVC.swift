@@ -14,20 +14,22 @@ class HistoryVC: UIViewController {
     var userData:[TriviaData]? = [TriviaData]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        // for getting the data in aarry and reversed the array
         userData = DatabaseHelper.shareInstance.getUserData().reversed()
-       // setViewModel()
+       // setup the tableview
         setupTableView()
 
         // Do any additional setup after loading the view.
     }
     func setupTableView() {
+        // register  the cell
         tableView.registerCellNib(TableViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
     }
     
-    
+    // get count from the userdata array
     func getRowsCount() -> Int{
         if let data = userData{
             return data.count
@@ -43,7 +45,8 @@ extension HistoryVC:UITableViewDataSource,UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        cell.setData(res: userData![indexPath.row],index:indexPath.row)
+        // setting data the UITableViewCell
+        cell.setData(res: userData![indexPath.row])
         return cell
     }
 }

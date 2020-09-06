@@ -8,6 +8,7 @@
 
 import UIKit
 extension UIView{
+    // view round corner
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
         if #available(iOS 11, *) {
             var cornerMask = CACornerMask()

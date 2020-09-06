@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController3: UIViewController {
-
+    
     @IBOutlet weak var btn4: UIButton!
     @IBOutlet weak var btn3: UIButton!
     @IBOutlet weak var btn2: UIButton!
@@ -30,7 +30,7 @@ class ViewController3: UIViewController {
                 self.arrButtons[i].setIconLableLeft(string: "  " + self.array[i], image: "ic_radio_uncheck")
             }
         }
-
+        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -50,12 +50,14 @@ class ViewController3: UIViewController {
             DispatchQueue.main.async {
                 self.arrButtons[tag].setIconLableLeft(string: "  " + self.array[tag], image: "ic_radio_uncheck")
             }
+            // removing the previous selected item from the array
             preTags.remove(at: preTags.firstIndex(of: tag)!)
             
-
+            
         }else{
+            // making the selection for the selected items
             DispatchQueue.main.async {
-               self.arrButtons[tag].setIconLableLeft(string: "  " + self.array[tag], image: "ic_radio_check")
+                self.arrButtons[tag].setIconLableLeft(string: "  " + self.array[tag], image: "ic_radio_check")
             }
             preTags.append(tag)
         }
@@ -64,19 +66,25 @@ class ViewController3: UIViewController {
     
     
     @IBAction func onClickNext(_ sender: Any) {
-                for index in preTags {
-                    selStrArr.append(array[index])
+        for index in preTags {
+            selStrArr.append(array[index])
         }
+        
+        // convertin the array a comma seperated string
         finalString = selStrArr.map{String($0)}.joined(separator: ",")
+        
+        // validation
         guard let val = finalString,val.count > 0 else {
             showToast(message: "Please select at lease one")
             return
         }
+        // saving the selected colors of the flag
         UserDefaults.standard.set(val, forKey: "flagColors")
+        // moving to ViewController4
         let vc = storyboard?.instantiateViewController(withIdentifier: "ViewController4") as! ViewController4
         navigationController?.pushViewController(vc, animated: true)
-              
-
+        
+        
     }
     
 }

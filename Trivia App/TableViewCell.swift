@@ -26,7 +26,7 @@ class TableViewCell: UITableViewCell {
         
     }
 
-    func setData(res:TriviaData,index:Int) {
+    func setData(res:TriviaData) {
         
         if let dateT = res.dateT{
             lbDateTime.text = dateT

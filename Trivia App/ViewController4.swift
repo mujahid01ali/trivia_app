@@ -18,13 +18,14 @@ class ViewController4: UIViewController {
     @IBOutlet weak var lbBestCriketerQues: UILabel!
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var lbDateTime: UILabel!
+    // getting all the saved responses
     let userName:String? = UserDefaults.standard.object(forKey: "userName") as? String
     let bestCriketer:String? = UserDefaults.standard.object(forKey: "bestCriketer") as? String
     let flagColors:String? = UserDefaults.standard.object(forKey: "flagColors") as? String
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // for displaying the response
         display()
     }
     func display() {
@@ -44,7 +45,7 @@ class ViewController4: UIViewController {
             lbFlagColorQues.text = ConstantString.FLAG_COLOR_QUESTION
         }
     }
-    
+    // for teaking the current date and time
     func getCurrentTimeDate() -> String {
         let date = Date()
         let formatter = DateFormatter()
@@ -52,25 +53,18 @@ class ViewController4: UIViewController {
         return formatter.string(from: date)
     }
     @IBAction func onClickSave(_ sender: Any) {
+        // making the dictionary of all the values
         let dic = ["userName":userName,"cricketerName":bestCriketer,"flagColors":flagColors,"dateT":getCurrentTimeDate()]
+        // saving the data into the core data base
         DatabaseHelper.shareInstance.save(object: dic as! [String:String])
+        // clearing all the saved responses
         UserDefaults.standard.set(nil, forKey: "flagColors")
         UserDefaults.standard.set(nil, forKey: "userName")
         UserDefaults.standard.set(nil, forKey: "bestCriketer")
+        // moving to the root
         DispatchQueue.main.asyncAfter(deadline: .now()+1.0) {
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
