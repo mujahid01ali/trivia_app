@@ -12,10 +12,12 @@ class HistoryVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var viewList = [ViewTypeModel]()
-    var userData = DatabaseHelper.shareInstance.getStudentList().reversed()
+    var userData:[TriviaData]? = [TriviaData]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        setViewModel()
+        userData = DatabaseHelper.shareInstance.getStudentList().reversed()
+       // setViewModel()
+        setupTableView()
 
         // Do any additional setup after loading the view.
     }
@@ -26,32 +28,32 @@ class HistoryVC: UIViewController {
         tableView.reloadData()
     }
     
-    func setViewModel() {
-        viewList = [ViewTypeModel]()
-        for item in userData{
-            viewList.append(ViewTypeModel(type: String.className(TableViewCell.self), model: item))
+    
+    func getRowsCount() -> Int{
+        if let data = userData{
+            return data.count
+        }else{
+            return 0
         }
-        setupTableView()
     }
 
 }
 extension HistoryVC:UITableViewDataSource,UITableViewDelegate{
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewList.count
+        return getRowsCount()
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let info = viewList[indexPath.row]
-        switch info.type{
-        case String.className(TableViewCell.self):
-            let res = info.model as! TriviaData
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-            cell.setData(res: res,index:indexPath.row)
-            return cell
-        default:
-            return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+        cell.setData(res: userData![indexPath.row],index:indexPath.row)
+        return cell
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            userData = DatabaseHelper.shareInstance.deleteData(index: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
 }

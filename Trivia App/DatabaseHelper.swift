@@ -37,4 +37,16 @@ class DatabaseHelper{
         }
         return userData
     }
+    func deleteData(index:Int) -> [TriviaData] {
+        var triviaData = getStudentList()
+        context?.delete(triviaData[index])
+        triviaData.remove(at: index)
+        do{
+            try context?.save()
+        }catch{
+            print("Cannot Delete data")
+        }
+        return triviaData
+        
+    }
 }
